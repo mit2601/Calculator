@@ -33,7 +33,7 @@ if (m.key>=0 && m.key<=9 ||m.key==="."){
   display.value=str;
 }
 else if(ops.includes(m.key)){
-  if(str.charAt(str.length-1) === m.key){
+  if(ops.includes(str.charAt(str.length - 1))){
      str = str.slice(0, -1) + m.key;
      display.value = str
   }
