@@ -28,9 +28,21 @@ else if (event.target.classList.contains("equals")) {
 document.addEventListener("keydown" , (m)=>{
   m.preventDefault();
   const ops = ["+","-","/","*"];
-if (m.key>=0 && m.key<=9 || ops.includes(m.key)||m.key==="."){
+if (m.key>=0 && m.key<=9 ||m.key==="."){
   str+=m.key;
   display.value=str;
+}
+else if(ops.includes(m.key)){
+  if(str.charAt(str.length-1) === m.key){
+     str = str.slice(0, -1) + m.key;
+     display.value = str
+  }
+   else if (str === "") {
+      display.value = "Invalid input";
+      return;
+    } 
+
+
 }
 else if(m.key==="Backspace"){
   str = str.slice(0,-1);
@@ -48,6 +60,7 @@ else if(m.key === "=" || m.key === "Enter"){
   //   str="";
   // }
 }
+
 else if(m.key === "Escape"){
   str = "";
   display.value=""
