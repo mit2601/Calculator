@@ -20,7 +20,7 @@ document.addEventListener("keydown", (m) => {
   handleInput(m.key);
 });
 
-function claculate() {
+function calculate() {
   try {
     console.log(str);
     str = eval(str);
@@ -48,7 +48,8 @@ function handleInput(input) {
     if (str === "") return;
     if (isLastCharOperator()){
       display.value="Invalid input";
-      str = "";
+      str = ""; 
+      return;
     }
     calculate();
   }
@@ -62,7 +63,7 @@ function handleInput(input) {
     // If last char is ANY operator, replace it
     if (isLastCharOperator()) {
       str = str.slice(0, -1) + input;
-      display.value = str;
+      display.value=str;
     }
     else if (str === "") {
       display.value = "Invalid input";
